@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript">
+(function (l) {
+    if (l.search[1] === "/") {
+        var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+                return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+        window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+    }
+})(window.location);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #dff6ff;
+    color: #17445c;
+    font-family: "Courier New", monospace;
+    image-rendering: pixelated;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1, h2, h3, button, .pixel-text {
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(#8ed9f5 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.topbar {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    gap: 8px;
+}
+
+.sound-btn {
+    border: 3px solid #17445c;
+    background: #fff;
+    color: #17445c;
+    padding: 8px 12px;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #17445c;
+    transition: 0.1s;
+}
+
+.sound-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #17445c;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 130px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.intro,
+.friend-section,
+.bestie,
+.memories,
+.letter-section,
+.cake,
+.end {
+    text-align: center;
+}
+
+.intro-small {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.intro h1 {
+    font-size: clamp(28px, 6vw, 55px);
+    line-height: 1.15;
+    margin-bottom: 35px;
+}
+
+.character-wrap {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.character-box {
+    width: min(330px, 80vw);
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: linear-gradient(#b9edff, #dff8ff);
+    border: 5px solid #17445c;
+    box-shadow: 9px 9px 0 #17445c;
+    overflow: hidden;
+}
+
+.character-box img {
+    width: 90%;
+    max-height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transition: transform 0.2s;
+}
+
+.character-box img:hover {
+    transform: translateY(-7px);
+}
+
+.pixel-button {
+    border: 4px solid #17445c;
+    background: #fff;
+    color: #17445c;
+    padding: 13px 20px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 #17445c;
+    transition: 0.1s;
+}
+
+.pixel-button:hover {
+    background: #c7f1ff;
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #17445c;
+}
+
+.pixel-button:active {
+    transform: translate(6px, 6px);
+    box-shadow: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.reveal {
+    animation: reveal 0.7s ease forwards;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.friend-section h2 {
+    font-size: clamp(30px, 6vw, 55px);
+    color: #146486;
+    margin-bottom: 12px;
+}
+
+.friend-section h3 {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.traits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 250px));
+    gap: 15px;
+    max-width: 550px;
+    width: 100%;
+}
+
+.trait {
+    background: #fff;
+    border: 3px solid #17445c;
+    padding: 18px;
+    box-shadow: 5px 5px 0 #17445c;
+    font-size: 14px;
+    transition: 0.15s;
+}
+
+.trait:hover {
+    transform: translateY(-5px);
+    background: #c8f2ff;
+}
+
+.bestie-small {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.bestie h1 {
+    font-size: clamp(42px, 10vw, 90px);
+    line-height: 0.95;
+    color: #0e6488;
+    text-shadow: 5px 5px 0 #fff;
+    margin-bottom: 30px;
+}
+
+.bestie p {
+    max-width: 500px;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.memories h2,
+.letter-section h2 {
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 850px;
+    width: 100%;
+}
+
+.memory {
+    min-height: 180px;
+    background: #fff;
+    border: 4px solid #17445c;
+    box-shadow: 6px 6px 0 #17445c;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.memory:hover {
+    transform: translate(-3px, -3px);
+    background: #c9f3ff;
+}
+
+.memory span {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.letter-section {
+    justify-content: flex-start;
+    padding-top: 90px;
+}
+
+.letter {
+    max-width: 700px;
+    background: #fff;
+    border: 5px solid #17445c;
+    box-shadow: 9px 9px 0 #17445c;
+    padding: 35px;
+    text-align: left;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.letter p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.end h2 {
+    font-size: clamp(30px, 7vw, 60px);
+    margin-bottom: 25px;
+}
+
+.end p {
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.pixel-heart {
+    position: fixed;
+    pointer-events: none;
+    font-size: 20px;
+    animation: floatUp 4s linear forwards;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.7);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.2);
+    }
+}
+
+/* Blue glitter cursor trail */
+.cursor-glitter {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    background: #159ddd;
+    box-shadow:
+        0 0 5px #159ddd,
+        0 0 10px #63d8ff,
+        0 0 16px #fff;
+    animation: glitterFade 700ms ease-out forwards;
+}
+
+@keyframes glitterFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(
+            calc(-50% + var(--drift-x)),
+            calc(-50% + var(--drift-y))
+        ) scale(0) rotate(180deg);
+    }
+}
+
+/* Ambient blue hearts / sparks / flowers, always drifting up from the bottom */
+.ambient-glitter {
+    position: fixed;
+    bottom: -40px;
+    left: 0;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 0;
+    user-select: none;
+    text-shadow: 0 0 6px rgba(21, 157, 221, 0.55), 0 0 12px rgba(99, 216, 255, 0.35);
+    animation-name: ambientFloat;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes ambientFloat {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg);
+    }
+    12% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--sway), -115vh) rotate(var(--spin));
+    }
+}
+
+/* Full-screen memory page overlay */
+.memory-page {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: #dff6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.memory-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(#8ed9f5 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.memory-page-close {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+}
+
+.memory-page-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.memory-page h2 {
+    font-size: clamp(24px, 5vw, 38px);
+    color: #146486;
+    margin-bottom: 25px;
+}
+
+.memory-textarea {
+    width: min(600px, 90vw);
+    min-height: 220px;
+    border: 4px solid #17445c;
+    box-shadow: 7px 7px 0 #17445c;
+    background: #fff;
+    color: #17445c;
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 18px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+.memory-textarea:focus {
+    outline: none;
+    background: #f2fcff;
+}
+
+.save-status {
+    margin-top: 14px;
+    font-size: 14px;
+    min-height: 18px;
+    color: #0e6488;
+    font-weight: bold;
+}
+
+/* Neon blue pointer tags around the character art */
+.poke-tag {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.poke-tag span {
+    font-family: "Caveat", "Courier New", cursive;
+    font-weight: 700;
+    font-size: 24px;
+    color: #eaffff;
+    white-space: nowrap;
+    text-shadow:
+        0 0 4px #7ff2ff,
+        0 0 10px #33cfff,
+        0 0 18px #159ddd,
+        0 0 28px #0b6fa3;
+}
+
+.poke-tag svg {
+    filter: drop-shadow(0 0 3px #7ff2ff) drop-shadow(0 0 7px #159ddd);
+}
+
+.poke-tag.tag-1 {
+    top: -8%;
+    left: -46%;
+    transform: rotate(-6deg);
+}
+
+.poke-tag.tag-2 {
+    top: -4%;
+    right: -52%;
+    transform: rotate(5deg);
+}
+
+.poke-tag.tag-3 {
+    bottom: 6%;
+    left: -50%;
+    transform: rotate(-4deg);
+}
+
+@media (max-width: 720px) {
+    .poke-tag {
+        display: none;
+    }
+}
+
+/* Bottom page navigation */
+.page-nav {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 150;
+    display: flex;
+    gap: 14px;
+}
+
+/* Music choice modal */
+.music-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(9, 40, 58, 0.6);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.music-modal-box {
+    background: #dff6ff;
+    border: 5px solid #17445c;
+    box-shadow: 9px 9px 0 #0b6fa3, 0 0 24px #33cfff;
+    padding: 35px 30px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+}
+
+.music-modal-box h3 {
+    font-size: 19px;
+    margin-bottom: 24px;
+    color: #0e6488;
+    text-shadow: 0 0 8px #7ff2ff;
+}
+
+.music-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Cake section */
+.cake-instructions {
+    font-size: 15px;
+    margin-bottom: 30px;
+    opacity: 0.85;
+}
+
+.cake-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.candles {
+    display: flex;
+    gap: 26px;
+    margin-bottom: -6px;
+    z-index: 2;
+}
+
+.candle {
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.25s;
+    filter: drop-shadow(0 0 6px #ffcf5c);
+}
+
+.candle.blown {
+    cursor: default;
+    filter: grayscale(1) brightness(0.75);
+    opacity: 0.55;
+    transform: translateY(2px) scale(0.94);
+}
+
+.pixel-cake {
+    position: relative;
+    width: min(300px, 80vw);
+}
+
+.cake-layer {
+    border: 4px solid #17445c;
+    box-shadow: 5px 5px 0 #17445c;
+    background: repeating-linear-gradient(45deg, #ffffff 0 10px, #d7f4ff 10px 20px);
+}
+
+.cake-top {
+    width: 62%;
+    height: 55px;
+    margin: 0 auto;
+    background: repeating-linear-gradient(45deg, #ffffff 0 8px, #b9edff 8px 16px);
+}
+
+.cake-mid {
+    width: 82%;
+    height: 60px;
+    margin: -4px auto 0;
+}
+
+.cake-base {
+    width: 100%;
+    height: 65px;
+    margin: -4px auto 0;
+    background: repeating-linear-gradient(45deg, #ffffff 0 8px, #8ed9f5 8px 16px);
+}
+
+.cake-slice-mark {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 4px;
+    height: 188px;
+    background: #17445c;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(21, 157, 221, 0.7);
+}
+
+.cake-message {
+    margin-top: 35px;
+    font-size: clamp(24px, 6vw, 44px);
+    color: #0e6488;
+    text-shadow: 0 0 6px #7ff2ff, 0 0 16px #33cfff, 4px 4px 0 #fff;
+    line-height: 1.3;
+}
+
+@media (max-width: 650px) {
+    .character-box {
+        height: 350px;
+    }
+
+    .traits,
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 22px;
+        font-size: 14px;
+    }
+
+    section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+<audio id="birthdaySong" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="topbar">
+    <button class="sound-btn" id="soundButton" onclick="toggleMusic()">
+        🔇 music off
+    </button>
+</div>
+
+<div class="page-nav hidden" id="pageNav">
+    <button class="pixel-button" id="navBackBtn" onclick="prevPage()">← back</button>
+    <button class="pixel-button" id="navNextBtn" onclick="nextPage()">next →</button>
+</div>
+
+<div class="music-modal hidden" id="musicModal">
+    <div class="music-modal-box">
+        <h3>🎵 want music with this?</h3>
+        <div class="music-modal-buttons">
+            <button class="pixel-button" onclick="chooseMusic(true)">🔊 music on</button>
+            <button class="pixel-button" onclick="chooseMusic(false)">🔇 continue muted</button>
+        </div>
+    </div>
+</div>
+
+<section class="intro" id="intro">
+    <div class="intro-small">Guess whattt.....</div>
+
+    <h1>Today's the best person on this 🌍's BIRTHDAY...</h1>
+
+    <div class="character-wrap">
+        <div class="poke-tag tag-1">
+            <span>he is my bestie</span>
+            <svg width="60" height="50" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 5 C 10 30, 40 20, 45 45" fill="none" stroke="#33cfff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M38 40 L45 46 L50 37" fill="none" stroke="#33cfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <div class="poke-tag tag-2">
+            <span>coolest guy ever</span>
+            <svg width="60" height="50" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5 C 50 30, 20 20, 15 45" fill="none" stroke="#33cfff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M22 40 L15 46 L10 37" fill="none" stroke="#33cfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <div class="poke-tag tag-3">
+            <svg width="60" height="50" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 45 C 10 20, 40 30, 48 8" fill="none" stroke="#33cfff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M40 10 L48 8 L47 17" fill="none" stroke="#33cfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>best human on planet</span>
+        </div>
+
+        <div class="character-box">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Art of my best friend">
+        </div>
+    </div>
+
+    <button class="pixel-button" onclick="enterSite()">
+        Click me! ♡
+    </button>
+
+    <p id="introMessage" class="hidden" style="margin-top:25px;">
+          YAY.<br>
+        He's here GNG🤚.
+    </p>
+</section>
+
+<section class="friend-section hidden" id="friendSection">
+    <p class="intro-small">ONLY HUMAN WHO IS CLOSEST TO MY 🫀</p>
+    <h2>THIS IS MY BESTIE CHANN🌻</h2>
+    <h3>and he is no big deal at all but I defintely am ✋😎🤚,HAHA.</h3>
+
+    <div class="traits">
+        <div class="trait">✦ Professional GOOD BOY 🎀 </div>
+        <div class="trait">✦ Certified Pokkie 🥰</div>
+        <div class="trait">✦ Somehow always there🫂</div>
+        <div class="trait">✦ Suspiciously lovable !</div>
+        <div class="trait">✦ Extremely talented👨‍💻</div>
+        <div class="trait">✦ My favourite human🫶🏻🥹❤️‍🩹</div>
+        <div class="trait">✦ Mentalist fanzz (us) ~ AURA9999+ </div>
+        <div class="trait">✦ The only without whom I cannot survive any disaster😭 </div>
+        
+    </div>
+</section>
+
+<section class="bestie hidden" id="bestieSection">
+    <p class="bestie-small">My closest one on planet EARTH 🌏...</p>
+    <h1>BESTEST!<br> ONE AND ONLY KAUSIIKK SANN 🫂🥹<3 </h1>
+    <p>
+        The one who shows up every single time.<br>
+        The one who knows everything.<br>
+        The one I can be completely stupid with.<br>
+        The one I wouldn't dare to replace.
+        The forever ONE!
+    </p>
+</section>
+
+<section class="memories hidden" id="memorySection">
+    <h2>OUR LORE™</h2>
+
+    <div class="memory-grid">
+        <div class="memory" data-index="0"><span>📸<br><br>The day we met</span></div>
+        <div class="memory" data-index="1"><span>😂<br><br>That one stupid incident</span></div>
+        <div class="memory" data-index="2"><span>🫂<br><br>A memory I'll never forget</span></div>
+        <div class="memory" data-index="3"><span>💀<br><br>Our dumbest conversation</span></div>
+        <div class="memory" data-index="4"><span>🌙<br><br>One of my favourite nights</span></div>
+        <div class="memory" data-index="5"><span>♡<br><br>One moment that meant a lot</span></div>
+    </div>
+</section>
+
+<div class="memory-page hidden" id="memoryPage-0">
+    <button class="pixel-button memory-page-close" onclick="closeMemoryPage(0)">← back</button>
+    <div class="memory-page-icon">📸</div>
+    <h2>The day we met</h2>
+    <textarea class="memory-textarea" id="memoryText-0" placeholder="Write about the day you two met..."></textarea>
+    <button class="pixel-button" onclick="saveMemoryText(0)">💾 save this memory</button>
+    <p class="save-status" id="saveStatus-0"></p>
+</div>
+
+<div class="memory-page hidden" id="memoryPage-1">
+    <button class="pixel-button memory-page-close" onclick="closeMemoryPage(1)">← back</button>
+    <div class="memory-page-icon">😂</div>
+    <h2>That one stupid incident</h2>
+    <textarea class="memory-textarea" id="memoryText-1" placeholder="Write about that one stupid incident..."></textarea>
+    <button class="pixel-button" onclick="saveMemoryText(1)">💾 save this memory</button>
+    <p class="save-status" id="saveStatus-1"></p>
+</div>
+
+<div class="memory-page hidden" id="memoryPage-2">
+    <button class="pixel-button memory-page-close" onclick="closeMemoryPage(2)">← back</button>
+    <div class="memory-page-icon">🫂</div>
+    <h2>A memory I'll never forget</h2>
+    <textarea class="memory-textarea" id="memoryText-2" placeholder="Write about a memory you'll never forget..."></textarea>
+    <button class="pixel-button" onclick="saveMemoryText(2)">💾 save this memory</button>
+    <p class="save-status" id="saveStatus-2"></p>
+</div>
+
+<div class="memory-page hidden" id="memoryPage-3">
+    <button class="pixel-button memory-page-close" onclick="closeMemoryPage(3)">← back</button>
+    <div class="memory-page-icon">💀</div>
+    <h2>Our dumbest conversation</h2>
+    <textarea class="memory-textarea" id="memoryText-3" placeholder="Write about your dumbest conversation..."></textarea>
+    <button class="pixel-button" onclick="saveMemoryText(3)">💾 save this memory</button>
+    <p class="save-status" id="saveStatus-3"></p>
+</div>
+
+<div class="memory-page hidden" id="memoryPage-4">
+    <button class="pixel-button memory-page-close" onclick="closeMemoryPage(4)">← back</button>
+    <div class="memory-page-icon">🌙</div>
+    <h2>One of my favourite nights</h2>
+    <textarea class="memory-textarea" id="memoryText-4" placeholder="Write about one of your favourite nights..."></textarea>
+    <button class="pixel-button" onclick="saveMemoryText(4)">💾 save this memory</button>
+    <p class="save-status" id="saveStatus-4"></p>
+</div>
+
+<div class="memory-page hidden" id="memoryPage-5">
+    <button class="pixel-button memory-page-close" onclick="closeMemoryPage(5)">← back</button>
+    <div class="memory-page-icon">♡</div>
+    <h2>One moment that meant a lot</h2>
+    <textarea class="memory-textarea" id="memoryText-5" placeholder="Write about a moment that meant a lot..."></textarea>
+    <button class="pixel-button" onclick="saveMemoryText(5)">💾 save this memory</button>
+    <p class="save-status" id="saveStatus-5"></p>
+</div>
+
+<section class="letter-section hidden" id="letterSection">
+    <h2>OKAY.<br>Speaking off...</h2>
+
+    <div class="letter">
+        <p>I still remember the 1st day we met. It's the 11th of April. I had no idea you were there , I only knew Eris and talked with her. But you were there silently texting.
+
+The next day you started talking. We played games all those nights. Idk why I did that , coz it was my 1st time. It all feels so beautiful when I think about them again now.
+
+We had a rough patch in between for sometime. But then somehow because of this PersonalityG we connected again. All thanks to that !!
+
+We were having endless discussions about it. And before actually realising we got really close with each other.
+
+We started discussing every single thing. The more we talked the more I felt safe. The more comfortable I got. To a point where now I can discuss about literally any shit , any fucking thing without getting awkward. Because ik he's my kausiikkk sann , he's never gonna judge me for any thing imma do.
+
+Then it was October. You came on a spiritual tour to Tamil Nadu.
+I wanted to meet you irl fr. And you did changed the route just for me to come see me while going back.
+
+You're so introverted.We both were just smiling and laughing like idiots. You never really spoke well when we met and yk I'm just the same person both online and offline. It wasn't a perfect meeting but we made it.
+
+The 1st person on this planet to put an effort to meet me irl 🥺. And ik that day onwards, we are gonna be besties for life. Because what best version am I without Kaushik sann 🫂.
+
+I started watching GLS by this time. I told you so.
+You were like "yay , let's goo!!" . Then after Blank and Faye , and figuring out , you were the 1st person I told abt my sexuality and you were super cool with it and said " No matter what , I'm always gonna be supportive with whatever you're doing coz ur my bestie chann"🥹.
+
+You got no idea what it meant to me because I needed that very much at that time. You've created that safe space for me to open up and be who I really am . Unfiltered. Just a raw person of who I am. That's exactly how I never really was when I was with anyone but only you.
+
+Next it was Diwali and I felt like not celebrating it at all but I did choose to call you because I wanted to talk with you on the day everyone in this world is celebrating with full of colours. And I wanted to enjoy it with my Best friend 😊.
+
+Next we were yapping many times. Also we started to send  good morning msg to each other almost every day.
+
+You ordered me Phodu club's BITSAT prep book in which I solved many and but didn't get into bits anyways moving on.
+
+Next new year came. We entered the new year together. On a vc. You were doing some weird rituals in the New year. Haha they were funny but we did it anyways😌🤞. We promised we gonna make this year one of our best.
+
+Next my exams started coming, JEE mains mostly. You were there cheering me 📣🎀. I was shit scared of mains but then I talked the night before mains to you. You told me to relax and watch GLS and I did that lol.
+
+Before the exam u texted me in the morning and after the exam I called you and told about my mains , you were so supportive 😊🫂.
+
+But a week after that I was spiralling because I calculated marks in the mock round wrongly and vented to you.
+
+But you , you just listened to me and told me you'll always be proud of me and marks don't define me . Very supportive , I mean I couldn've just given up if u didn't tell that the other day🥺🫂
+
+Next all my boards got over . My birthday arrived. You made me a gift , just like this website I did for you .
+
+But guess what , it was the 1st ever gift I have received from anyone. That too thisss beautiful.
+I can't do anything but cry the whole day. Because Idk. It was one of the nicest things someone ever did for me in this lifetime. 🥺🫂💗
+
+
+I can never forget that and many times I often revisit it whenever I feel very low because ik my bestie chann knows me better than myself.
+
+Then all my heartbreaks and everything , you were there for me. Every single time. A shoulder I can always rely on 🫂🥺
+
+I again fked up in between . Not talking to you properly but then I always knew my kausikk san will always be there for me. I apologise again 🥺🤞.
+
+Then this clg shit happened , you literally listened to all my yapping of straight 2 hrs of nothingness 😭✋.
+You told me again when I was spiralling that , clg or mark doesn't define you. And I finally got into that clg and you were the 1st person I called not even my Mom 🥹🫂
+
+Just a week before, after getting into clg hostel the 1st person I called was you.
+
+Coz ik you're the person I ll be reaching out. Whether it's the most happiest thing or the saddest. The best or the worst , my hand just scrolls to dial your number🥺🫂.
+
+The person whom I can trust with my bank account. The one I can literally saw anything without have to worrying or feeling awkward about it later. The one whom I can be trust version of myself. The one I get to discuss about Mentalist to my fucked up mental health. The one who can literally give me shelter, even  for the rest of my life if I go homeless any sooner. The one and only one whom ik will always stay , for the rest of my life. The only one with whom I can use My Forever Friend without thinking twice. The irreplaceable. The best. The closest. Only , Kausikk San 🫂🥹🌻.
+
+Many might say their parents, siblings or their kids but whenever I think about you , I ll always feel like you're a God's gift. Like God cannot help me directly so he sent you to me in the form of my bestest friend😭🫂.
+
+The one I can always rely on. The one who somehow makes me feel special every single time. Especially when you posted that reel about me , out of nowhere about how special I am to you 🥹 , the same way you are to me.
+
+
+It's like you've always that friend I ve been waiting for in my life. You popped up out of nowhere very randomly but here we are now. 😊
+
+I used this song because somehow this song is as beautiful as our friendship...... And this is just a year, we got an entire lifetime to go. Let's gooo face this life , with each other to rely on. 🎀🌻🥹
+
+And many more happy returns of the day kausikkk san. You're the best and you got no idea what wonders you did in my life. I'm always grateful for your existence. Let's grow together. 🤞🫂❤️‍🔥
+
+You're struck with me for rest of your life 😆.</p>
+        <p class="signature">Happy Birthday ♡<br>— SRINIDHI🫶🏼</p>
+    </div>
+</section>
+
+<section class="cake hidden" id="cakeSection">
+    <h2>MAKE A WISH, KAUSIIKK SANN 🎂</h2>
+    <p class="cake-instructions" id="cakeInstructions">blow out all the candles first...</p>
+
+    <div class="cake-wrap">
+        <div class="candles" id="candlesRow">
+            <span class="candle" data-lit="true" onclick="blowCandle(this)">🕯️</span>
+            <span class="candle" data-lit="true" onclick="blowCandle(this)">🕯️</span>
+            <span class="candle" data-lit="true" onclick="blowCandle(this)">🕯️</span>
+        </div>
+
+        <div class="pixel-cake">
+            <div class="cake-layer cake-top"></div>
+            <div class="cake-layer cake-mid"></div>
+            <div class="cake-layer cake-base"></div>
+            <div class="cake-slice-mark hidden" id="cakeSliceMark"></div>
+        </div>
+    </div>
+
+    <button class="pixel-button hidden" id="cutCakeBtn" onclick="cutCake()">🔪 cut the cake</button>
+
+    <h1 class="cake-message hidden" id="cakeMessage">HAPPIEST B'DAY<br>KAUSIIKK SAN 🧿❤️‍🩹</h1>
+</section>
+
+<section class="end hidden" id="endSection">
+    <h2>HAPPY BIRTHDAY,<br>KAUSIKKK SANN🖇️🫂🎀🫶🏻💌♡</h2>
+
+    <p>
+        Here's to whatever comes next.<br>
+        Unfortunately...<br>
+        you're still stuck with me.
+    </p>
+
+    <button class="pixel-button" onclick="replay()">
+        play it again? ↺
+    </button>
+</section>
+
+<script>
+const song = document.getElementById("birthdaySong");
+const soundButton = document.getElementById("soundButton");
+
+let musicStarted = false;
+
+/* Page-by-page navigation, instead of scrolling */
+const pageIds = [
+    "intro",
+    "friendSection",
+    "bestieSection",
+    "memorySection",
+    "letterSection",
+    "cakeSection",
+    "endSection"
+];
+
+let currentPage = 0;
+
+function showPage(index) {
+    pageIds.forEach((id, idx) => {
+        const el = document.getElementById(id);
+        if (idx === index) {
+            el.classList.remove("hidden");
+            el.classList.add("reveal");
+            el.scrollTop = 0;
+        } else {
+            el.classList.add("hidden");
+            el.classList.remove("reveal");
+        }
+    });
+
+    currentPage = index;
+    updateNav();
+}
+
+function updateNav() {
+    const nav = document.getElementById("pageNav");
+
+    if (currentPage === 0) {
+        nav.classList.add("hidden");
+        return;
+    }
+
+    nav.classList.remove("hidden");
+
+    document.getElementById("navBackBtn").style.visibility = "visible";
+    document.getElementById("navNextBtn").style.visibility =
+        currentPage === pageIds.length - 1 ? "hidden" : "visible";
+}
+
+function nextPage() {
+    if (currentPage < pageIds.length - 1) {
+        showPage(currentPage + 1);
+    }
+}
+
+function prevPage() {
+    if (currentPage > 0) {
+        showPage(currentPage - 1);
+    }
+}
+
+function enterSite() {
+    document.getElementById("introMessage").classList.remove("hidden");
+    document.getElementById("musicModal").classList.remove("hidden");
+}
+
+function chooseMusic(withMusic) {
+    document.getElementById("musicModal").classList.add("hidden");
+
+    if (withMusic) {
+        song.volume = 0.55;
+        song.play()
+            .then(() => {
+                musicStarted = true;
+                soundButton.innerHTML = "🔊 music on";
+            })
+            .catch(() => {});
+    } else {
+        song.pause();
+        song.currentTime = 0;
+        musicStarted = false;
+        soundButton.innerHTML = "🔇 music off";
+    }
+
+    showPage(1);
+}
+
+function toggleMusic() {
+    if (song.paused) {
+        song.play();
+        soundButton.innerHTML = "🔊 music on";
+    } else {
+        song.pause();
+        soundButton.innerHTML = "🔇 music off";
+    }
+}
+
+/* Ambient blue hearts, sparks and flowers drifting up from the bottom of the screen */
+const ambientSymbols = ["♡", "♥", "✦", "✧", "❀", "✿", "❁", "☆"];
+const ambientColors = ["#159ddd", "#3fc3f2", "#63d8ff", "#8ed9f5", "#0e6488", "#a7e9ff"];
+
+function spawnAmbientGlitter() {
+    const el = document.createElement("div");
+    el.className = "ambient-glitter";
+    el.innerText = ambientSymbols[Math.floor(Math.random() * ambientSymbols.length)];
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = (14 + Math.random() * 16) + "px";
+    el.style.color = ambientColors[Math.floor(Math.random() * ambientColors.length)];
+    el.style.setProperty("--sway", (Math.random() * 90 - 45) + "px");
+    el.style.setProperty("--spin", (Math.random() * 360 - 180) + "deg");
+    const duration = 5 + Math.random() * 3;
+    el.style.animationDuration = duration + "s";
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), duration * 1000 + 100);
+}
+
+/* Keeps a gentle, steady stream going the whole time the page is open */
+(function ambientGlitterLoop() {
+    spawnAmbientGlitter();
+    const nextDelay = 550 + Math.random() * 550; // moderate pace: not too much, not too little
+    setTimeout(ambientGlitterLoop, nextDelay);
+})();
+
+/* A little celebratory burst, used when a memory page opens or a memory is saved */
+function burstGlitter(count) {
+    for (let i = 0; i < count; i++) {
+        setTimeout(spawnAmbientGlitter, i * 45);
+    }
+}
+
+/* Create blue glitter particles wherever the cursor moves */
+let lastGlitterTime = 0;
+
+document.addEventListener("pointermove", event => {
+    const now = performance.now();
+
+    if (now - lastGlitterTime < 28) {
+        return;
+    }
+
+    lastGlitterTime = now;
+
+    const glitter = document.createElement("span");
+    glitter.className = "cursor-glitter";
+    glitter.style.left = event.clientX + "px";
+    glitter.style.top = event.clientY + "px";
+    glitter.style.setProperty("--drift-x", `${Math.random() * 28 - 14}px`);
+    glitter.style.setProperty("--drift-y", `${Math.random() * 28 - 14}px`);
+
+    document.body.appendChild(glitter);
+    glitter.addEventListener("animationend", () => glitter.remove());
+});
+
+function replay() {
+    showPage(0);
+    document.getElementById("introMessage").classList.add("hidden");
+
+    // reset the cake for next time
+    document.querySelectorAll(".candle").forEach(c => {
+        c.dataset.lit = "true";
+        c.classList.remove("blown");
+    });
+    litCandles = 3;
+    document.getElementById("cakeInstructions").innerText = "blow out all the candles first...";
+    document.getElementById("cutCakeBtn").classList.add("hidden");
+    document.getElementById("cakeSliceMark").classList.add("hidden");
+    document.getElementById("cakeMessage").classList.add("hidden");
+
+    song.currentTime = 0;
+    song.play().catch(() => {});
+    soundButton.innerHTML = "🔊 music on";
+}
+
+/* Candle blowing + cake cutting */
+let litCandles = 3;
+
+function blowCandle(el) {
+    if (el.dataset.lit === "false") {
+        return;
+    }
+
+    el.dataset.lit = "false";
+    el.classList.add("blown");
+    litCandles--;
+    burstGlitter(6);
+
+    if (litCandles === 0) {
+        document.getElementById("cakeInstructions").innerText = "now cut the cake 🔪";
+        document.getElementById("cutCakeBtn").classList.remove("hidden");
+    }
+}
+
+function cutCake() {
+    document.getElementById("cutCakeBtn").classList.add("hidden");
+    document.getElementById("cakeSliceMark").classList.remove("hidden");
+    burstGlitter(35);
+
+    setTimeout(() => {
+        const msg = document.getElementById("cakeMessage");
+        msg.classList.remove("hidden");
+        msg.classList.add("reveal");
+    }, 600);
+}
+
+document.querySelectorAll(".memory").forEach(card => {
+    card.addEventListener("click", () => {
+        card.style.transform = "scale(0.96)";
+
+        setTimeout(() => {
+            card.style.transform = "";
+        }, 120);
+
+        const index = card.getAttribute("data-index");
+        openMemoryPage(index);
+    });
+});
+
+function openMemoryPage(index) {
+    const page = document.getElementById("memoryPage-" + index);
+    const textarea = document.getElementById("memoryText-" + index);
+
+    const saved = localStorage.getItem("memory-" + index);
+    if (saved !== null) {
+        textarea.value = saved;
+    }
+
+    page.classList.remove("hidden");
+    page.classList.add("reveal");
+    document.body.style.overflow = "hidden";
+
+    burstGlitter(22);
+
+    setTimeout(() => textarea.focus(), 200);
+}
+
+function closeMemoryPage(index) {
+    document.getElementById("memoryPage-" + index).classList.add("hidden");
+    document.body.style.overflow = "";
+}
+
+updateNav();
+
+function saveMemoryText(index) {
+    const textarea = document.getElementById("memoryText-" + index);
+    localStorage.setItem("memory-" + index, textarea.value);
+
+    const status = document.getElementById("saveStatus-" + index);
+    status.innerText = "✓ saved!";
+    burstGlitter(16);
+
+    setTimeout(() => {
+        status.innerText = "";
+    }, 2200);
+}
+</script>
+</body>
+</html>
